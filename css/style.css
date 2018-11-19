@@ -1,0 +1,150 @@
+body
+{
+	background-color: white;
+	background-image: url("../photos/background.jpg");
+	background-size: cover;
+	background-position: center;
+
+}
+
+#wholepage
+{
+	width: 1080;
+	background-color: none;
+	/* background-image: url(bg.png);
+	background-size: contain; */
+	margin: 0 auto;
+	padding: 10px;
+	border: 2px solid #dedede;
+}
+
+#banner
+{
+	border: 2px solid #dedede;
+	height: 100px;
+	/* background-image: url(https://picsum.photos/200/300/?random); */
+
+}
+
+.rand_image
+{
+	width: 50%;
+	height: 100%;
+}
+
+#content
+{
+	float: left;
+	width: 100%; */
+	margin: 20px 10px;
+	/* padding: 10px;
+	border: 2px solid #dedede; */
+	height: auto;
+}
+#content img
+{
+	float: left;
+	width: 50%;
+	margin: 20px 10px;
+	/* padding: 10px;
+	border: 2px solid #dedede; */
+	height: auto;
+
+}
+#sidebar
+{
+	float: left;
+	width: 400px;
+	height: 400px;
+	margin: 20px 10px;
+	/* padding: 10px;
+	border: 2px solid #dedede; */
+}
+
+footer
+{
+	clear: both;
+	width: auto;
+	height: 40px;
+	padding: 10px;
+	border: 3px solid #dedede;
+	text-align: center;
+	color: white;
+	text-shadow: 0.1em 0.1em #333333;
+}
+@font-face {
+	font-family: 'PigpenRegular';
+	src: url('http://www.fontsaddict.com/fontface/pigpen-regular.ttf');
+  }
+
+#webname
+{
+	padding: auto;
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 3em;
+	color: #e3e3e3;
+}
+
+
+#navigation
+{
+    height: 60px;
+    border: 3px solid #e3e3e3;
+    margin-top: 20px;
+    /* text-shadow: 0.1em 0.1em #333333; */
+}
+
+#navigation a:link, #navigation a:active, #navigation a:visited
+{
+    display: block;
+    color: black;
+    text-decoration: none;
+}
+
+/* #navigation a:hover
+{
+    color: aqua;
+} */
+
+#nav_list
+{
+    list-style: none;
+}
+
+#nav_list li
+{
+    font-size: 25px;
+    float: left;
+    position: relative;
+    width: 250px;
+    height: 50px;
+}
+
+#logo
+{
+    height: 30px;
+		width: auto;
+}
+
+img:hover
+{
+    color: aqua;
+    opacity: 0.5;
+}
+
+.tooltip .tooltiptext
+{
+    visibility: hidden;
+    font-size: 12px;
+}
+
+.tooltip:hover .tooltiptext
+{
+    visibility: visible;
+}
+
+#center
+{
+    text-align: center;
+}

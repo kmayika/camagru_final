@@ -1,0 +1,76 @@
+body
+{
+	background-color: pink;
+}
+
+#logo_pic
+{
+	width: 50px;
+	height: 50px;
+
+}
+
+#logo_pic:hover
+{
+  opacity: 0.5;
+}
+
+.tool_tip_text
+{
+    visibility: hidden;
+    font-size: 12px;
+}
+.capture_button
+{
+	float: left;
+  padding: 2 50 0 40;
+
+}
+.booth
+{
+	width: 400px;
+	height: auto;
+	background-color:#ccc;
+	border: 1px solid black;
+	margin: 0 auto;
+}
+
+.gallery
+{
+	width: 300px;
+}
+
+#video
+{
+  width: 580px ;
+  height: auto;
+}
+
+#canvas
+{
+	width: 380px;
+	height: auto;
+}
+
+#option_list
+{
+  list-style: none;
+}
+
+#option_list li
+{
+  float: left;
+  position: relative;
+  width: auto;
+  height: 50px;
+}
+
+.comment
+{
+  text-align: center;
+}
+
+#caption
+{
+	width: 400px;
+}
