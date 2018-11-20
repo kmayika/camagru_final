@@ -41,6 +41,11 @@ body
 	border: 2px solid #dedede; */
 	height: auto;
 }
+#comment
+{
+	background-color: lightgrey;
+
+}
 #content img
 {
 	float: left;
