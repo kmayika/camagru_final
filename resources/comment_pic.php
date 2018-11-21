@@ -9,5 +9,5 @@
   $query->execute();
   // $row = $query->fetchAll();
   echo "<img src='../upload/{$image}'/>";
-  echo "yesy";
+  echo $_SESSION['im'];
  ?>
