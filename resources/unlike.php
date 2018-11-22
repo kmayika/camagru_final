@@ -11,7 +11,7 @@
     $query->execute();
     $row = $query->fetchColumn();
     $likes = $row['likes'];
-    $query = $database->prepare("UPDATE db_camagru.images SET likes=$likes+1 WHERE id=:user_id");
+    $query = $database->prepare("UPDATE db_camagru.images SET likes=$likes-1 WHERE id=:user_id");
     $query->bindParam(":user_id", $user_id, PDO::PARAM_STR);
     $query->execute();
     header("location: ../template.php");

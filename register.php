@@ -42,15 +42,18 @@ if (isset($_POST['btnRegister']))
     }
     else
     {
-        $user_id = $app->Register($_POST['username'], $_POST['email'], $_POST['password'], $_POST['password_confirm']);
+        $hash = md5(rand(0,1000));
+        $user_id = $app->Register($_POST['username'], $_POST['email'], $_POST['password'], $_POST['password_confirm'], $hash);
         $_SESSION['id'] = $user_id;
         // send email
         if(!empty($user_id))
         {
-          $actual_link = "http://$_SERVER[HTTP_HOST]" ."/camagru_final"."/login.php";
           $toEmail = $_POST['email'];
+          $username = $_POST['username'];
+          $password = $_POST['password'];
+          $actual_link = "http://$_SERVER[HTTP_HOST]" ."/camagru_final"."/verify.php?email=$toEmail&hash=$hash";
           $subject = "User Registration Activation Email";
-          $content = "Click this link to activate your account." ."$actual_link";
+          $content = "Thanks for registering with Kwezi's Camagru, your username='$username' and password='$password'. Click this link to activate your account." ."$actual_link";
           $mailHeaders = "From: Admin\r\n";
           if(mail($toEmail, $subject, $content, $mailHeaders))
           {

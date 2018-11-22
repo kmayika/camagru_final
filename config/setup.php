@@ -11,19 +11,22 @@ try
                                     `id` INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
                                     `username` VARCHAR(255) NOT NULL,
                                     `email` VARCHAR(255) NOT NULL,
+                                    `hash` VARCHAR(32) NOT NULL,
                                     `password` VARCHAR(255) NOT NULL,
-                                    `password_confirm` VARCHAR(255) NOT NULL);
+                                    `password_confirm` VARCHAR(255) NOT NULL,
+                                    `active` INT( 1 ) NOT NULL DEFAULT '0');
 
                                 CREATE TABLE IF NOT EXISTS images(
                                   `id` INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
                                   `user_id` INT(11) NOT NULL,
-                                  `image` VARCHAR(255) NOT NULL);
+                                  `image` VARCHAR(255) NOT NULL,
+                                  `likes` INT(11) NOT NULL DEFAULT '0',
+                                  `creation_date` DATETIME NOT NULL);
 
-                                CREATE TABLE IF NOT EXISTS comment_like(
+                                CREATE TABLE IF NOT EXISTS comment(
                                   `id` INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-                                  `user_id` INT(11) NOT NULL,
-                                  `comment` VARCHAR(255) NOT NULL,
-                                  `like` VARCHAR(255) NOT NULL);");
+                                  `post_id` INT(11) NOT NULL,
+                                  `comment` VARCHAR(255) NOT NULL);");
       $query->execute();
 
 }

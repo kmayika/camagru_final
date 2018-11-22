@@ -6,14 +6,15 @@ require_once("config/database.php");
 class DemoLib
 {
     //register user and return id
-    public function Register($username, $email, $password, $confirm)
+    public function Register($username, $email, $password, $confirm, $hashed)
     {
         try
         {
             $database = db_camagru();
-            $query = $database->prepare("INSERT INTO db_camagru.users (username, email, password, password_confirm) VALUES (:username, :email, :password, :confirm)");
+            $query = $database->prepare("INSERT INTO db_camagru.users (username, email, hash,password, password_confirm) VALUES (:username, :email,:hashed, :password, :confirm)");
             $query->bindParam(':username', $username, PDO::PARAM_STR);
             $query->bindParam(':email', $email, PDO::PARAM_STR);
+            $query->bindParam(':hashed', $hashed, PDO::PARAM_STR);
             $hash = hash('sha256',$password);
             $query->bindParam(':password', $hash, PDO::PARAM_STR);
             $confirm_hash = hash('sha256',$confirm);

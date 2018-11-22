@@ -26,6 +26,7 @@ echo '<div id="center"><li class="tooltip"><a href="logout.php"><img id="logo" s
            include ("home_content.php");
 
         echo '</table>
+
        </div>
        </div>
        <footer>All rights reserved</footer>
