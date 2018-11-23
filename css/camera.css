@@ -10,6 +10,12 @@ body
 
 }
 
+#upload
+{
+	color: white;
+
+}
+
 #logo_pic:hover
 {
   opacity: 0.5;

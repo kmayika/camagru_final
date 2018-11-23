@@ -30,18 +30,22 @@ echo '<div id="center"><li class="tooltip"><a href="../logout.php"><img id="logo
        <div id="content">
        <center><video id="video"></video></center>
        <div>
-         <ul id="option_list">
-         <div><li><a href="#" id="capture" class="capture_button" name="capture"><img id="logo_pic" src="../photos/cam_logo.png"></a><span class="tool_tip_text">Take Picture</span></li></div>
-        <div><li><a href="#" id="edit" class="capture_button" name="edit"><img id="logo_pic" src="../photos/effects.png"></a></li></div>
-        <div><li><a href="#" id="save" class="capture_button" name="save"><img id="logo_pic" src="../photos/save.png"></a></li></div>
+         <ul id="option_list"  class="navigation">
+         <div class="tooltip"><li><a href="#" id="capture" class="capture_button" name="capture"><img id="logo_pic" src="../photos/cam_logo.png"><span class="tooltiptext">Take Snap</span></a></li></div>
+        <div class="tooltip"><li><a href="#" id="edit" class="capture_button" name="edit"><img id="logo_pic" src="../photos/effects.png"><span class="tooltiptext">Click for stickers</span></a></li></div>
+        <div class="tooltip"><li><a href="#" id="save" class="capture_button" name="save"><img id="logo_pic" src="../photos/save.png"><span class="tooltiptext">Save Snap</span></a></li></div>
       </ul>
        </div>
        </div>
 
        <div id="sidebar">
        <canvas id="canvas" name="photo" ></canvas>
-       <input type="text" id="comment" name="comment" placeholder="Add Caption">
        </div>
+       <form action="../upload.php" method="post" enctype="multipart/form-data">
+    <div id="upload"><p>Select image to upload:
+    <input type="file" name="image" >
+    <input type="submit" value="Upload Image" name="submit"></p><div>
+</form>
    </div>
 
    <script type="text/JavaScript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js" ></script>

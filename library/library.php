@@ -115,14 +115,14 @@ class DemoLib
             exit($e->getMessage());
         }
     }
-    public function pic_upload($image, $comment)
+    public function pic_upload($image, $user_id)
     {
       try
       {
           $database = db_camagru();
-          $query = $database->prepare("INSERT INTO db_camagru.images (image, comment) VALUES (:image, :comment)");
+          $query = $database->prepare("INSERT INTO db_camagru.images (user_id,image, creation_date) VALUES (:user_id,:image,CURTIME())");
           $query->bindParam(':image', $image, PDO::PARAM_STR);
-          $query->bindParam(':comment', $comment, PDO::PARAM_STR);
+          $query->bindParam(':user_id', $user_id, PDO::PARAM_STR);
           $query->execute();
           return $database->lastInsertId();
       }
@@ -133,53 +133,53 @@ class DemoLib
 
     }
 
-    public function getPhoto()
-    {
-        try
-        {
-            $database = db_camagru();
-            $query = $database->prepare("SELECT * FROM db_camagru.images");
-            if ($query)
-            {
-                echo "<ul id ='photos'> \n";
-                while ($row = $query->fetch(PDO::FETCH_ASSOC))
-                {
-                    $comment = $row['comment'];
-                    $image = $row['image'];
-                    $id = $row['id'];
+    // public function getPhoto()
+    // {
+    //     try
+    //     {
+    //         $database = db_camagru();
+    //         $query = $database->prepare("SELECT * FROM db_camagru.images");
+    //         if ($query)
+    //         {
+    //             echo "<ul id ='photos'> \n";
+    //             while ($row = $query->fetch(PDO::FETCH_ASSOC))
+    //             {
+    //                 $comment = $row['comment'];
+    //                 $image = $row['image'];
+    //                 $id = $row['id'];
+    //
+    //                 echo "<li><a title='$title' href='../upload/$src'><<img src='../upload/$src' id='$id' alt='$title' /> </a>";
+    //                 echo "<h4>$title</h4> \n";
+    //                 echo "<input type='text' name='title' value='$title' /></li> \n \n";
+    //             }
+    //             echo "\n</ul>";
+    //         }
+    //     }
+    //
+    //     catch (PDOException $e)
+    //     {
+    //       exit($e->getMessage());
+    //     }
+    // }
 
-                    echo "<li><a title='$title' href='../upload/$src'><<img src='../upload/$src' id='$id' alt='$title' /> </a>";
-                    echo "<h4>$title</h4> \n";
-                    echo "<input type='text' name='title' value='$title' /></li> \n \n";
-                }
-                echo "\n</ul>";
-            }
-        }
-
-        catch (PDOException $e)
-        {
-          exit($e->getMessage());
-        }
-    }
-
-    public function show_picture()
-    {
-      $database = db_camagru();
-      $query = $database->prepare("SELECT * FROM db_camagru.images WHERE id = ?");
-      $query->bindParam(1,$_GET['id']);
-      $query->execute();
-      while ($row = $query->fetch(PDO::FETCH_ASSOC))
-      {
-      echo "<div id='img_div'>";
-      	echo "<img src='images/".$row['image']."' >";
-      	echo "<p>".$row['image_text']."</p>";
-      echo "</div>";
+    // public function show_picture()
+    // {
+    //   $database = db_camagru();
+    //   $query = $database->prepare("SELECT * FROM db_camagru.images WHERE id = ?");
+    //   $query->bindParam(1,$_GET['id']);
+    //   $query->execute();
+    //   while ($row = $query->fetch(PDO::FETCH_ASSOC))
+    //   {
+    //   echo "<div id='img_div'>";
+    //   	echo "<img src='images/".$row['image']."' >";
+    //   	echo "<p>".$row['image_text']."</p>";
+    //   echo "</div>";
         // $row = $query->fetch(PDO::FETCH_ASSOC);
         // header ("content-type: image/jpg");
         // print $row['data'];
         // exit;
-      }
-    }
+    //   }
+    // }
     // public function csv_store($photo)
     // {
     //         $file_open = fopen("./photo.csv", "a");

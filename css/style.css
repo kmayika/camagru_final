@@ -43,10 +43,10 @@ body
 }
 #comment
 {
-	background-color: lightgrey;
+	background-color: #edb6e9;
 
 }
-#content img
+#content td img
 {
 	float: left;
 	width: 50%;
@@ -101,6 +101,22 @@ footer
 }
 
 #navigation a:link, #navigation a:active, #navigation a:visited
+{
+    display: block;
+    color: black;
+    text-decoration: none;
+}
+
+.navigation
+{
+    height: 60px;
+    border: 3px solid #e3e3e3;
+		background-color: #edb6e9;
+    margin-top: 30px;
+    /* text-shadow: 0.1em 0.1em #333333; */
+}
+
+.navigation a:link, .navigation a:active, .navigation a:visited
 {
     display: block;
     color: black;

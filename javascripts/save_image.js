@@ -17,18 +17,17 @@
     .always(function(respond){console.log("always");})
 });
 
-    // var ajax = new XMLHttpRequest(),
-    // 			 params="image="+dataUrl;
-    //
-		// ajax.open("POST", "../webcam/save_image.php", true);
-		// ajax.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-		// ajax.onreadystatechange = function()
-		// {
-		//     if (this.readyState == 4 && this.status == 200){
-		// 		 console.log("Success");
-		// 	 }
-		// };
-		// ajax.send(params);
-
+//     var ajax = new XMLHttpRequest();
+//     var params="image="+dataUrl;
+//
+// 		ajax.open("POST", "../webcam/save_image.php", true);
+// 		ajax.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+// 		ajax.onreadystatechange = function()
+// 		{
+// 		    if (this.readyState == 4 && this.status == 200){
+// 				 console.log("Success");
+// 			 }
+// 		};
+// 		ajax.send(params);
+//
 // });
-// )();

@@ -10,7 +10,6 @@ if (isset($_SESSION['username']))
 }
 else
 {
-  echo "error: " . $_SESSION['username'];
+  echo "<script> alert ('error') </script>";
 }
-
 ?>
