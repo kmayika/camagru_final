@@ -13,7 +13,7 @@ session_start();
 $user = $_SESSION['username'];
 echo '<div id="wholepage">
         <div id="banner">
-            <h1 id="webname">CAMAGRU</h1>
+            <h1 id="webname">PROFILE</h1>
         </div>
         <nav id="navigation">
             <ul id="nav_list">

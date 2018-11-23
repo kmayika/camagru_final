@@ -3,7 +3,7 @@
 ini_set("display_errors",1);
 error_reporting(E_ALL);
 
-require ("library/library.php");
+require ("class/library.class.php");
 $app = new DemoLib();
 
 $login_error_message = '';

@@ -1,6 +1,6 @@
 <html>
   <head>
-    <h1><?php echo $_POST['username'] . " " ."Profile" ?></h1>
+    <title>Profile</title>
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <!-- <link rel="stylesheet" type="text/css" href="../css/photo.css"> -->
   </head>

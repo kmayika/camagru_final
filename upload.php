@@ -1,8 +1,8 @@
 <?php
 session_start();
-require ('library/library.php');
+require ('class/library.class.php');
 $app = new DemoLib();
-if (isset($_POST['submit']) && !empty($_FILES['image']['name']))
+if (isset($_POST['submit']) && !empty($_FILES['image']['name']) AND isset($_SESSION['id']))
 {
   $user_id = $_SESSION['id'];
   //get all submitted data

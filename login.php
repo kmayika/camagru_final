@@ -4,13 +4,13 @@ session_start();
 ini_set("display_errors",1);
 error_reporting(E_ALL);
 
-require ('library/library.php');
+require ('class/library.class.php');
 $app = new DemoLib();
 
 $login_error_message = '';
 
 //check login request
-if (isset($_POST['btnLogin']))
+if (isset($_POST['Login']))
 {
     $username = trim($_POST['username']);
     $password = trim($_POST['password']);
@@ -60,14 +60,15 @@ include ("resources/header.php");
             <form action="login.php" method="post">
                 <div class="form-group">
                     <label for="">Username/Email</label>
-                    <input type="text" name="username" class="form-control" placeholder="Enter username/email"/>
+                    <input type="text" name="username"  placeholder="Enter username/email"/>
                 </div>
                 <div class="form-group">
                     <label for="">Password</label>
-                    <input type="password" name="password" class="form-control" placeholder="Enter password"/>
+                    <input type="password" name="password"  placeholder="Enter password"/>
                 </div>
                 <div class="form-group">
-                    <input type="submit" name="btnLogin" class="btn btn-primary" value="Login"/>
+                    <input type="submit" name="Login"  value="Login"/>
+                    <a href="forgot.php">Forgot Password</a>
                 </div>
 
 			</form>
