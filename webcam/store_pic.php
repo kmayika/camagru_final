@@ -7,7 +7,7 @@
     {
       $_POST = json_decode(file_get_contents("php://input"), true);
       $img = $_POST['image'];
-      $folderPath = "../upload/";
+      $folderPath = "../uploads/";
       $image_parts = explode(";base64,", $img);
       $image_type_aux = explode("image/", $image_parts[0]);
       $image_type = $image_type_aux[1];
