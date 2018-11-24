@@ -18,7 +18,7 @@ if(isset($_POST['submit']) && !empty($_POST['email']))
         $toEmail = $_POST['email'];
         $subject = "Your Recovered Password";
         $message = "Please use this password to login " . $password;
-        $headers = "Admin\r\n";
+        $headers = "From: Camagru\r\n";
         $query = $database->prepare("UPDATE db_camagru.users SET password=:hash WHERE email=:email");
         $query->bindParam(":hash", $hash, PDO::PARAM_STR);
         $query->bindParam(":email", $email, PDO::PARAM_STR);
@@ -27,7 +27,8 @@ if(isset($_POST['submit']) && !empty($_POST['email']))
         {
           if(mail($toEmail, $subject, $message, $headers))
           {
-          	echo "<div><p> ".$toEmail." ".$subject." ".$message." ".$headers."</p></div>";
+          	// echo "<div><p> ".$toEmail." ".$subject." ".$message." ".$headers."</p></div>";
+            echo "<script> alert ('Please check your email')</script>";
           }
           else
           {
@@ -40,10 +41,6 @@ if(isset($_POST['submit']) && !empty($_POST['email']))
   		echo "User name does not exist in database";
   	}
   }
-}
-else
-{
-  echo "fuck off";
 }
 
 ?>

@@ -25,9 +25,9 @@ while ($row = $query->fetch(PDO::FETCH_ASSOC))
         <form  action='resources/comment_pic.php' method='get'>
           <img src='upload/{$row['image']}' class='gallery'>
           <p>Likes : ".$row['likes']."</p>
-          <p>Id : ".$row['id']."</p>
           <input type='text' name='comment' placeholder='write comment'/>
           <input type='hidden' name='id' value=".$row['id']." />
+          <input type='hidden' name='user_id' value=".$row['user_id']." />
           <input type='submit' value='comment'>
           <a href='resources/like.php?id=".$row['id']."'>Like</a>
           <a href='resources/unlike.php?id=".$row['id']."'>Unlike</a>

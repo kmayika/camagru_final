@@ -10,7 +10,27 @@
       $query->bindValue(":post_id",$post_id);
       $query->bindParam(":comment",$comment, PDO::PARAM_STR);
       $query->execute();
-      header ("location: ../template.php");
+      $user = $_GET['user_id'];
+      $query = $database->prepare("SELECT email FROM db_camagru.users WHERE id=:user");
+      $query->bindParam(":user", $user, PDO::PARAM_STR);
+      $query->execute();
+      if ($email = $query->fetchColumn())
+      {
+        $subject = "Comments";
+        $message = "Someone commented on your picture";
+        $headers = "From: Camagru\r\n";
+        if (mail($email,$subject,$message,$headers))
+        {
+          header ("location: ../template.php");
+        }
+        else {
+          echo "error";
+        }
+      }
+      else {
+        echo "error with email";
+      }
+
   }
   else {
     echo "<script> alert ('comment field is empty') </script>";

@@ -9,11 +9,6 @@ $app = new DemoLib();
 $login_error_message = '';
 $register_error_message = '';
 $message = '';
-
-
-
-
-//check register request
 if (isset($_POST['btnRegister']))
 {
     if ($_POST['username'] == "")
@@ -54,7 +49,7 @@ if (isset($_POST['btnRegister']))
           $actual_link = "http://$_SERVER[HTTP_HOST]" ."/camagru_final"."/verify.php?email=$toEmail&hash=$hash";
           $subject = "User Registration Activation Email";
           $content = "Thanks for registering with Kwezi's Camagru, your username='$username' and password='$password'. Click this link to activate your account." ."$actual_link";
-          $mailHeaders = "From: Admin\r\n";
+          $mailHeaders = "From: Camagru\r\n";
           if(mail($toEmail, $subject, $content, $mailHeaders))
           {
             $message =  "You have registered and the activation mail is sent to your email. Click the activation link to activate you account.";
@@ -72,36 +67,36 @@ include ("resources/header.php");
      <?php
      if ($register_error_message != "")
      {
-         echo '<div class="alert alert-danger"><strong>Error: </strong> ' . $register_error_message . '</div>';
+         echo '<div><strong>Error: </strong> ' . $register_error_message . '</div>';
      }
      else if ($message != "")
      {
-         echo '<div class="alert alert-danger"><strong>Error: </strong> ' . $message . '</div>';
+         echo '<script> alert ("Hello: '.$message.'")</script>';
      }
      ?>
      <form action="register.php" method="post">
-     <div class="form-group">
+     <div>
              <label for="">Username</label>
              <input type="text" name="username" class="form-control" placeholder="Enter username"/>
          </div>
-         <div class="form-group">
+         <div>
              <label for="">Email</label>
              <input type="email" name="email" class="form-control" placeholder="Enter email" />
          </div>
 
-         <div class="form-group">
+         <div>
              <label for="">Password</label>
              <input type="password" name="password" class="form-control" placeholder="Enter password"/>
          </div>
-         <div class="form-group">
+         <div>
              <label for="">Password Confim</label>
              <input type="password" name="password_confirm" class="form-control" placeholder="Confirm password"/>
          </div>
-         <div class="form-group">
+         <div>
              <input type="submit" name="btnRegister" class="btn btn-primary" value="register"/>
          </div>
      </form>
-     <div class="form-group">
+     <div>
        <p>
         Already a member ? <a href="login.php" ><input type="submit" name="btnLogin" value="Login"/></a>
      </p>

@@ -20,7 +20,7 @@ class DemoLib
             $confirm_hash = hash('sha256',$confirm);
             $query->bindParam(':confirm', $confirm_hash, PDO::PARAM_STR);
             $query->execute();
-            return $database->lastInsertId();//check user id currently on session
+            return $database->lastInsertId();
         }
         catch (PDOException $e)
         {

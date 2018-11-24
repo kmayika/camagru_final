@@ -3,7 +3,6 @@
   if (!isset($_SESSION['id']))
   {
     echo "<form action='../login.php'><p>Please Login :<input type='submit' name=btn/ value='Login'></p></form>";
-    // header("location: login.php");
   }
 ?>
 
@@ -47,8 +46,6 @@ echo '<div id="center"><li class="tooltip"><a href="../logout.php"><img id="logo
     <input type="submit" value="Upload Image" name="submit"></p><div>
 </form>
    </div>
-
-   <script type="text/JavaScript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js" ></script>
    <script src="../javascripts/photo.js"></script>
    <script src="../javascripts/frame_edits.js"></script>
    <script src="../javascripts/save_image.js"></script>';

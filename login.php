@@ -25,12 +25,11 @@ if (isset($_POST['Login']))
     }
     else
     {
-        //check if username and password is okay
         $user_id = $app->Login($username, $password);
         if ($user_id > 0)
         {
             $_SESSION['username'] = $username;
-            $_SESSION['id'] = $user_id; //sset session if password and user exist
+            $_SESSION['id'] = $user_id;
             header ("location:template.php");
         }
         else
@@ -43,11 +42,6 @@ if (isset($_POST['Login']))
 include ("resources/header.php");
 ?>
 
-<!-- <html>
-<head>
-<title>Login</title>
-<link rel="stylesheet" href="css/bootstrap.css">
-</head> -->
 <body>
 <div class="row">
         <div class="col-md-5">
