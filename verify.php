@@ -19,6 +19,7 @@ session_start();
         $query->bindValue(":hash", $hash);
         $query->execute();
         echo '<script> alert ("Your account has been activated, you can now login")</script>';
+        header("refresh:0.01; url=login.php");
     }
     else
     {
