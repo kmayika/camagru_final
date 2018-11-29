@@ -27,6 +27,32 @@ class DemoLib
             echo $query . $e->getMessage();
         }
     }
+    //password check
+    public function password_check($password)
+    {
+      try
+      {
+        $database = db_camagru();
+        $query = $database->prepare("SELECT id FROM db_camagru.users WHERE username=:username ");
+        $query->bindParam("username", $username, PDO::PARAM_STR);
+        $query->execute();
+        if(!preg_match('/^(?=.*\d)(?=.*[A-Za-z])[0-9A-Za-z!@#$%]{8,12}$/', $password))
+        {
+          {
+              return true;
+          }
+        }
+        else
+        {
+            return false;
+        }
+      }
+      catch (PDOException $e)
+      {
+        echo $query . $e->getMessage();
+      }
+
+    }
     //check username
     public function isUsername($username)
     {
@@ -77,15 +103,22 @@ class DemoLib
         try
         {
             $database = db_camagru();
-            $query = $database->prepare("SELECT id FROM db_camagru.users WHERE (username=:username OR email=:username) AND password=:password");
+            $query = $database->prepare("SELECT id,active FROM db_camagru.users WHERE (username=:username OR email=:username) AND password=:password");
             $query->bindParam(':username', $username, PDO::PARAM_STR);
             $hash = hash('sha256', $password);
             $query->bindParam(':password', $hash, PDO::PARAM_STR);
             $query->execute();
             if ($query->rowCount() > 0)
             {
-                $result = $query->fetch(PDO::FETCH_OBJ);
-                return $result->id;
+              $result = $query->fetch(PDO::FETCH_ASSOC);
+              if ($result['active'] > 0)
+              {
+                return $result['id'];
+              }
+              else
+              {
+                echo "<script>alert ('Please click on activation that was sent to your email')</script>";
+              }
             }
             else
             {

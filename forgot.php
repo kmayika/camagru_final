@@ -12,23 +12,16 @@ if(isset($_POST['submit']) && !empty($_POST['email']))
   {
     if($row > 1)
     {
-
-        $password = rand(999,99999);
-        $hash = hash('sha256',$password);
         $toEmail = $_POST['email'];
         $subject = "Your Recovered Password";
-        $message = "Please use this password to login " . $password;
+        $message = "Please click on this link for resetting password ". "http://$_SERVER[HTTP_HOST]" ."/camagru_final"."/reset_password.php?email=$email";
         $headers = "From: Camagru\r\n";
-        $query = $database->prepare("UPDATE db_camagru.users SET password=:hash WHERE email=:email");
-        $query->bindParam(":hash", $hash, PDO::PARAM_STR);
-        $query->bindParam(":email", $email, PDO::PARAM_STR);
-        $res = $query->execute();
-        if($res)
+        if($row)
         {
           if(mail($toEmail, $subject, $message, $headers))
           {
-          	// echo "<div><p> ".$toEmail." ".$subject." ".$message." ".$headers."</p></div>";
-            echo "<script> alert ('Please check your email')</script>";
+          	echo "<div><p> ".$toEmail." ".$subject." ".$message." ".$headers."</p></div>";
+            // echo "<script> alert ('Please check your email')</script>";
           }
           else
           {

@@ -35,6 +35,10 @@ if (isset($_POST['btnRegister']))
     {
         $register_error_message = 'username already taken';
     }
+    elseif ($app->password_check($_POST['password']) == true)
+    {
+      $register_error_message = 'password must contain at least one number, at least one letter, at least one special character and  there have to be 8-12 characters';
+    }
     else
     {
         $hash = md5(rand(0,1000));
@@ -62,7 +66,7 @@ if (isset($_POST['btnRegister']))
 include ("resources/header.php");
  ?>
 
- <div class="col-md-5">
+ <div>
      <h4>Register</h4>
      <?php
      if ($register_error_message != "")

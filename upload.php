@@ -6,7 +6,7 @@ if (isset($_POST['submit']) && !empty($_FILES['image']['name']) AND isset($_SESS
 {
   $user_id = $_SESSION['id'];
 	$image = $_FILES['image']['name'];
-	$path = "uploads/" . basename($image);
+	$path = "upload/" . basename($image);
 	$insert_id = $app->pic_upload($image,$user_id);
   if (!empty($insert_id))
   {
