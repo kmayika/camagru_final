@@ -50,13 +50,15 @@ if (isset($_POST['btnRegister']))
           $toEmail = $_POST['email'];
           $username = $_POST['username'];
           $password = $_POST['password'];
-          $actual_link = "http://$_SERVER[HTTP_HOST]" ."/camagru_final"."/verify.php?email=$toEmail&hash=$hash";
+          $folder = basename(__DIR__);
+          $actual_link = "http://$_SERVER[HTTP_HOST]/$folder"."/verify.php?email=$toEmail&hash=$hash";
           $subject = "User Registration Activation Email";
-          $content = "Thanks for registering with Kwezi's Camagru, your username='$username' and password='$password'. Click this link to activate your account." ."$actual_link";
+          $content = "Thanks for registering with Kwezi's Camagru, your username='$username'. Click this link to activate your account." ." "."$actual_link";
           $mailHeaders = "From: Camagru\r\n";
           if(mail($toEmail, $subject, $content, $mailHeaders))
           {
             $message =  "You have registered and the activation mail is sent to your email. Click the activation link to activate you account.";
+            // echo "<div><p> ".$toEmail." ".$subject." ".$content." ".$mailHeaders."</p></div>";
           }
           unset($_POST);
         }

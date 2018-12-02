@@ -1,8 +1,12 @@
 <?php
   session_start();
   require ("../config/database.php");
-
-  if (isset($_GET['id']))
+  if (!isset($_SESSION['id']))
+  {
+    echo "<script> alert ('Please login')</script>";
+    header("refresh:0.01; url=../login.php");
+  }
+  else if (isset($_GET['id']))
   {
     $database = db_camagru();
     $user_id = $_GET['id'];

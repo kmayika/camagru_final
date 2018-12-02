@@ -4,6 +4,10 @@
   {
     echo "<form action='../login.php'><p>Please Login :<input type='submit' name=btn/ value='Login'></p></form>";
   }
+  else if (isset($_SESSION['id']))
+  {
+    echo "<form action='../edit_prof.php'><p>Edit Profile :<input type='submit' name=btn/ value='Edit' /></p></form>";
+  }
 ?>
 
 <?php

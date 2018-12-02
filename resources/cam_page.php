@@ -2,7 +2,8 @@
   session_start();
   if (!isset($_SESSION['id']))
   {
-    echo "<form action='../login.php'><p>Please Login :<input type='submit' name=btn/ value='Login'></p></form>";
+    echo "<script> alert ('Please login')</script>";
+    header("refresh:0.01; url=../login.php");
   }
 ?>
 
@@ -32,7 +33,7 @@ echo '<div id="center"><li class="tooltip"><a href="../logout.php"><img id="logo
          <ul id="option_list"  class="navigation">
          <div class="tooltip"><li><a href="#" id="capture" class="capture_button" name="capture"><img id="logo_pic" src="../photos/cam_logo.png"><span class="tooltiptext">Take Snap</span></a></li></div>
         <div class="tooltip"><li><a href="#" id="edit" class="capture_button" name="edit"><img id="logo_pic" src="../photos/effects.png"><span class="tooltiptext">Click for stickers</span></a></li></div>
-        <div class="tooltip"><li><a href="#" id="save" class="capture_button" name="save"><img id="logo_pic" src="../photos/save.png"><span class="tooltiptext">Save Snap</span></a></li></div>
+        <div class="tooltip"><li><a href="cam.php" id="save" class="capture_button" name="save"><img id="logo_pic" src="../photos/save.png"><span class="tooltiptext">Save Snap</span></a></li></div>
       </ul>
        </div>
        </div>
@@ -44,9 +45,18 @@ echo '<div id="center"><li class="tooltip"><a href="../logout.php"><img id="logo
     <div id="upload"><p>Select image to upload:
     <input type="file" name="image" >
     <input type="submit" value="Upload Image" name="submit"></p><div>
+
 </form>
    </div>
    <script src="../javascripts/photo.js"></script>
    <script src="../javascripts/frame_edits.js"></script>
    <script src="../javascripts/save_image.js"></script>';
+   require ('thumbnails.php');
+   $images = glob("../photos/*.{jpg,gif,png}", GLOB_BRACE);
+   echo '<select name="image">';
+   foreach($images as $image)
+   {
+     echo '<option>' . basename($image) . '</option>';
+   }
+   echo '</select>';
 ?>

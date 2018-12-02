@@ -1,7 +1,12 @@
 <?php
   session_start();
   require_once("../config/database.php");
-  if (isset($_GET['id']) && !empty($_GET['id']) AND isset($_GET['comment']) && !empty($_GET['comment']))
+  if (!isset($_SESSION['id']))
+  {
+    echo "<script> alert ('Please login')</script>";
+    header("refresh:0.01; url=../login.php");
+  }
+  else if (isset($_GET['id']) && !empty($_GET['id']) AND isset($_GET['comment']) && !empty($_GET['comment']))
   {
       $comment = strip_tags(trim($_GET['comment']));
       $post_id = $_GET['id'];

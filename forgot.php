@@ -14,7 +14,8 @@ if(isset($_POST['submit']) && !empty($_POST['email']))
     {
         $toEmail = $_POST['email'];
         $subject = "Your Recovered Password";
-        $message = "Please click on this link for resetting password ". "http://$_SERVER[HTTP_HOST]" ."/camagru_final"."/reset_password.php?email=$email";
+        $folder = basename(__DIR__);
+        $message = "Please click on this link for resetting password ". "http://$_SERVER[HTTP_HOST]/$folder"."/reset_password.php?email=$email";
         $headers = "From: Camagru\r\n";
         if($row)
         {

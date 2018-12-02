@@ -5,7 +5,7 @@ $i = 0;
 
 $database = db_camagru();
 $user_id = $_SESSION['id'];
-$query = $database->prepare("SELECT * FROM db_camagru.images");
+$query = $database->prepare("SELECT * FROM db_camagru.images ORDER BY creation_date DESC");
 $query->execute();
 
 

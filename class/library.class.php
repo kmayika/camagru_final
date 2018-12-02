@@ -53,6 +53,29 @@ class DemoLib
       }
 
     }
+    public function update_password($password, $id)
+    {
+        try
+        {
+            $database = db_camagru();
+            $query = $database->prepare("UPDATE db_camagru.users SET password=:password WHERE id=:id ");
+            $query->bindParam("password", $password, PDO::PARAM_STR);
+            $query->bindParam("id", $id, PDO::PARAM_STR);
+            $query->execute();
+            // if ($query->rowCount() > 0)
+            // {
+            //     return true;
+            // }
+            // else
+            // {
+            //     return false;
+            // }
+        }
+        catch (PDOException $e)
+        {
+            exit($e->getMessage());
+        }
+    }
     //check username
     public function isUsername($username)
     {
@@ -76,6 +99,29 @@ class DemoLib
             exit($e->getMessage());
         }
     }
+    public function update_username($username, $id)
+    {
+        try
+        {
+            $database = db_camagru();
+            $query = $database->prepare("UPDATE db_camagru.users SET username=:username WHERE id=:id ");
+            $query->bindParam("username", $username, PDO::PARAM_STR);
+            $query->bindParam("id", $id, PDO::PARAM_STR);
+            $query->execute();
+            // if ($query->rowCount() > 0)
+            // {
+            //     return true;
+            // }
+            // else
+            // {
+            //     return false;
+            // }
+        }
+        catch (PDOException $e)
+        {
+            exit($e->getMessage());
+        }
+    }
     public function isEmail($email)
     {
         try
@@ -92,6 +138,29 @@ class DemoLib
             {
                 return false;
             }
+        }
+        catch (PDOException $e)
+        {
+            exit($e->getMessage());
+        }
+    }
+    public function update_email($email, $id)
+    {
+        try
+        {
+            $database = db_camagru();
+            $query = $database->prepare("UPDATE db_camagru.users SET email=:email WHERE id=:id ");
+            $query->bindParam("email", $email, PDO::PARAM_STR);
+            $query->bindParam("id", $id, PDO::PARAM_STR);
+            $query->execute();
+            // if ($query->rowCount() > 0)
+            // {
+            //     return true;
+            // }
+            // else
+            // {
+            //     return false;
+            // }
         }
         catch (PDOException $e)
         {

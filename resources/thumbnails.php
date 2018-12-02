@@ -16,8 +16,7 @@ while ($row = $query->fetch(PDO::FETCH_ASSOC))
   }
 
   echo"<td>
-              <img src='../upload/{$row['image']}' class='gallery'>
-              <a href='../resources/delete.php?id=".$row['id']."' >delete pic</a>
+              <img src='../upload/{$row['image']}' width='100' height='100'>
       </td>";
   if ($i%3 == 2)
   {
