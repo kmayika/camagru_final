@@ -31,7 +31,7 @@ echo '<div id="center"><li class="tooltip"><a href="../logout.php"><img id="logo
            </ul>
        </nav>
        <div id="cont">
-       <div id="content" class="hidden">
+       <div id="content">
        <table>';
        ?>
          <?php

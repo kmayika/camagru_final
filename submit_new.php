@@ -19,7 +19,7 @@ if ($app->password_check($password) == false)
 }
 else
 {
-  echo "<script> alert ('chars')</script>";
+  echo "<script> alert ('password must contain at least one number, at least one letter, at least one special character and  there have to be 8-12 characters')</script>";
   header("refresh:0.01; url=reset_password.php");
 }
 

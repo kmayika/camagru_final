@@ -24,20 +24,29 @@
         $subject = "Comments";
         $message = "Someone commented on your picture";
         $headers = "From: Camagru\r\n";
-        if (mail($email,$subject,$message,$headers))
+        if ($_SESSION['notification'] == 1)
+        {
+          if (mail($email,$subject,$message,$headers))
+          {
+            header ("location: ../template.php");
+          }
+          else
+          {
+            echo "error";
+          }
+        }
+        else
         {
           header ("location: ../template.php");
         }
-        else {
-          echo "error";
-        }
       }
-      else {
+      else
+      {
         echo "error with email";
       }
-
   }
   else {
     echo "<script> alert ('comment field is empty') </script>";
+    header("refresh:0.01; url=../template.php");
   }
  ?>

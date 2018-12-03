@@ -7,7 +7,7 @@ require ("class/library.class.php");
 $app = new DemoLib();
 $register_error_message = "";
 $message = "";
-  $id = $_SESSION['id'];
+$id = $_SESSION['id'];
   if (isset($_POST['save']))
   {
     if (!empty($_POST['email']))
@@ -15,25 +15,52 @@ $message = "";
       if ($app->isEmail($_POST['email']) == false)
       {
         $app->update_email($_POST['email'], $id);
-        // echo $_POST['email'];
-
+        $message = "email set";
       }
       else {
-        echo "email exists";
+        $register_error_message = "email exists";
       }
     }
-    else if (!empty($_POST['username']))
+    if (!empty($_POST['username']))
     {
         if ($app->isUsername($_POST['username']) == false)
         {
-          $app->update_username($_POST['username'], $id);
+          if (!preg_match('<>', $_POST['username']))
+          {
+            $app->update_username(strip_tags(trim($_POST['username'])), $id);
+            $message = "username set";
+          }
+          else
+          {
+              $register_error_message = "username error";
+          }
         }
-        else {
-          echo "username exists";
+        else
+        {
+          $register_error_message = "username error";
         }
     }
-    echo "<script>alert ('Profile edited')</script>";
-    header("refresh:0.01; url=logout.php");
+    if (empty($_POST['email']) && empty($_POST['username']))
+    {
+      echo "<script>alert ('fields empty')</script>";
+    }
+
+  }
+  if (isset($_POST['email_notification']) && isset($_POST['save_notification']))
+  {
+    $yes = 1;
+    $_SESSION['notification'] = $yes;
+    echo "<script>alert ('Email Notifications switched On')</script>";
+    header("refresh:0.01; url=template.php");
+
+  }
+  else if (!isset($_POST['email_notification']) && isset($_POST['save_notification']))
+  {
+    $yes = 0;
+    $_SESSION['notification'] = $yes;
+    echo "<script>alert ('Email Notifications switched Off)</script>";
+    header("refresh:0.01; url=template.php");
+
   }
  ?>
  <div>
@@ -46,6 +73,7 @@ $message = "";
      else if ($message != "")
      {
          echo '<script> alert ("Hello: '.$message.'")</script>';
+         header("refresh:0.01; url=logout.php");
      }
      ?>
      <form action="edit_prof.php" method="post">
@@ -59,6 +87,12 @@ $message = "";
          </div>
          <div>
              <input type="submit" name="save" value="Save"/>
+         </div>
+         <div>
+           <label class="switch">Receive Email Notifications?
+             <input type="checkbox" name="email_notification">
+             <input type="submit" name="save_notification" value="Update"/>
+           </label>
          </div>
      </form>
      <div>

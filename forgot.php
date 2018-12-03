@@ -21,8 +21,8 @@ if(isset($_POST['submit']) && !empty($_POST['email']))
         {
           if(mail($toEmail, $subject, $message, $headers))
           {
-          	echo "<div><p> ".$toEmail." ".$subject." ".$message." ".$headers."</p></div>";
-            // echo "<script> alert ('Please check your email')</script>";
+          	// echo "<div><p> ".$toEmail." ".$subject." ".$message." ".$headers."</p></div>";
+            echo "<script> alert ('Please check your email')</script>";
           }
           else
           {

@@ -20,7 +20,7 @@ try
                                   `id` INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
                                   `user_id` INT(11) NOT NULL,
                                   `image` VARCHAR(255) NOT NULL,
-                                  `likes` INT(11) NOT NULL DEFAULT '0',
+                                  `likes` INT(255) NOT NULL DEFAULT '0',
                                   `creation_date` DATETIME NOT NULL);
 
                                 CREATE TABLE IF NOT EXISTS comment(

@@ -171,6 +171,7 @@ class DemoLib
     {
         try
         {
+            $username = strip_tags(trim($username));
             $database = db_camagru();
             $query = $database->prepare("SELECT id,active FROM db_camagru.users WHERE (username=:username OR email=:username) AND password=:password");
             $query->bindParam(':username', $username, PDO::PARAM_STR);

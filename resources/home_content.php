@@ -30,7 +30,6 @@ while ($row = $query->fetch(PDO::FETCH_ASSOC))
           <input type='hidden' name='user_id' value=".$row['user_id']." />
           <input type='submit' value='comment'>
           <a href='resources/like.php?id=".$row['id']."'>Like</a>
-          <a href='resources/unlike.php?id=".$row['id']."'>Unlike</a>
         </form>";
         while ($row_2 = $query_2->fetch(PDO::FETCH_ASSOC))
         {

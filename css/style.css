@@ -31,16 +31,23 @@ body
 	width: 50%;
 	height: 100%;
 }
+#cont
+{
+		position:relative;
+    overflow:auto;
+    height:800px;
+    width:100%;
+    border:1px solid red;
+}
 
 #content
 {
 	float: left;
 	width: 100%; */
 	margin: 20px 10px;
-	/* padding: 10px;
-	border: 2px solid #dedede; */
 	height: auto;
 }
+
 #comment
 {
 	background-color: #edb6e9;
@@ -49,7 +56,7 @@ body
 #content td img
 {
 	float: left;
-	width: 50%;
+	width: 70%;
 	margin: 20px 10px;
 	/* padding: 10px;
 	border: 2px solid #dedede; */
