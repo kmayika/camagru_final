@@ -14,6 +14,6 @@ if (isset($_GET['id']))
   $query->bindParam(":user_id", $user_id, PDO::PARAM_STR);
   $query->execute();
   echo "<script> alert ('deleted')</script>";
-  header("location: ../profile/profile.php");
+  header("refresh: 0.01; url=../profile/profile.php");
 }
 ?>

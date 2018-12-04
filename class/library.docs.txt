@@ -5,15 +5,29 @@ Register() method receives the registration details for the user and prepares
 the query to insert these in the database - returns the last inserted id of the
 user else it shows error that occured.
 
+password_check() method receives the users preferred password and checks whether
+it contains the necessary characters - returns true if password does not meet
+the password requirements and false when it does.
+
+update_password() method receives the new password and user id and updates this
+in the database.
+
+
 isUsername() method receives the username that is entered/posted by the user and
 prepares a query that searches for the username in the database to see whether
 it exists already or not, if it exists it returns true and if not it returns false.
 Else it shows error that occured.
 
+update_username() method receives the new username and user id and updates this
+in the database.
+
 isEmail() method receives the email that is entered/posted by the user and
 prepares a query that searches for the email in the database to see whether
 it exists already or not, if it exists it returns true and if not it returns false.
 Else it shows error that occured.
+
+update_email() method receives the new email and user id and updates this
+in the database.
 
 Login() method receives the username and password that is enters and compares it
 with the data that is in the database, if a user with similar data is found then
@@ -23,4 +37,6 @@ Else it shows error that occured.
 pic_upload() method receives the image to be uploaded and the user id and prepares
 a query that inserts the parameters to the database image table and returns the
 lastInsertId.Else it shows error that occured.
+
+db_camagru() method creates a connection to a preferred database.
 ---------------------------------------------------------------------- Camagru ->

@@ -62,14 +62,7 @@ class DemoLib
             $query->bindParam("password", $password, PDO::PARAM_STR);
             $query->bindParam("id", $id, PDO::PARAM_STR);
             $query->execute();
-            // if ($query->rowCount() > 0)
-            // {
-            //     return true;
-            // }
-            // else
-            // {
-            //     return false;
-            // }
+            
         }
         catch (PDOException $e)
         {
@@ -108,14 +101,7 @@ class DemoLib
             $query->bindParam("username", $username, PDO::PARAM_STR);
             $query->bindParam("id", $id, PDO::PARAM_STR);
             $query->execute();
-            // if ($query->rowCount() > 0)
-            // {
-            //     return true;
-            // }
-            // else
-            // {
-            //     return false;
-            // }
+
         }
         catch (PDOException $e)
         {
@@ -153,14 +139,7 @@ class DemoLib
             $query->bindParam("email", $email, PDO::PARAM_STR);
             $query->bindParam("id", $id, PDO::PARAM_STR);
             $query->execute();
-            // if ($query->rowCount() > 0)
-            // {
-            //     return true;
-            // }
-            // else
-            // {
-            //     return false;
-            // }
+
         }
         catch (PDOException $e)
         {
@@ -171,7 +150,6 @@ class DemoLib
     {
         try
         {
-            $username = strip_tags(trim($username));
             $database = db_camagru();
             $query = $database->prepare("SELECT id,active FROM db_camagru.users WHERE (username=:username OR email=:username) AND password=:password");
             $query->bindParam(':username', $username, PDO::PARAM_STR);

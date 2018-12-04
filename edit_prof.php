@@ -25,15 +25,8 @@ $id = $_SESSION['id'];
     {
         if ($app->isUsername($_POST['username']) == false)
         {
-          if (!preg_match('<>', $_POST['username']))
-          {
-            $app->update_username(strip_tags(trim($_POST['username'])), $id);
+            $app->update_username($_POST['username'], $id);
             $message = "username set";
-          }
-          else
-          {
-              $register_error_message = "username error";
-          }
         }
         else
         {
@@ -48,18 +41,18 @@ $id = $_SESSION['id'];
   }
   if (isset($_POST['email_notification']) && isset($_POST['save_notification']))
   {
-    $yes = 1;
+    $yes = 0;
     $_SESSION['notification'] = $yes;
-    echo "<script>alert ('Email Notifications switched On')</script>";
+    echo "<script>alert ('Email Notifications switched Off')</script>";
     header("refresh:0.01; url=template.php");
 
   }
-  else if (!isset($_POST['email_notification']) && isset($_POST['save_notification']))
+  if (isset($_POST['email_notification_yes']) && isset($_POST['save_notification_yes']))
   {
-    $yes = 0;
+    $yes = 1;
     $_SESSION['notification'] = $yes;
-    echo "<script>alert ('Email Notifications switched Off)</script>";
-    header("refresh:0.01; url=template.php");
+    echo "<script>alert ('Email Notifications switched On)</script>";
+    header("refresh:0.5; url=template.php");
 
   }
  ?>
@@ -79,7 +72,7 @@ $id = $_SESSION['id'];
      <form action="edit_prof.php" method="post">
      <div>
              <label for="">Username</label>
-             <input type="text" name="username" placeholder="Enter new username"/>
+             <input type="text" name="username" pattern="[a-zA-Z0-9!@#$%^*_|]{1,25}" placeholder="Enter new username"/>
          </div>
          <div>
              <label for="">Email</label>
@@ -89,9 +82,14 @@ $id = $_SESSION['id'];
              <input type="submit" name="save" value="Save"/>
          </div>
          <div>
-           <label class="switch">Receive Email Notifications?
+           <label >Do Not Receive Email Notifications?
              <input type="checkbox" name="email_notification">
              <input type="submit" name="save_notification" value="Update"/>
+           </label>
+         </br>
+           <label>Receive Email Notifications?
+             <input type="checkbox" name="email_notification_yes">
+             <input type="submit" name="save_notification_yes" value="Update"/>
            </label>
          </div>
      </form>

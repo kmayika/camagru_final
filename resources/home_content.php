@@ -12,7 +12,7 @@ $query->execute();
 while ($row = $query->fetch(PDO::FETCH_ASSOC))
 {
   $id = $row['id'];
-  $query_2 = $database->prepare("SELECT * FROM db_camagru.comment WHERE post_id=:id");
+  $query_2 = $database->prepare("SELECT * FROM db_camagru.comment WHERE post_id=:id ORDER BY id DESC");
   $query_2->bindValue(":id", $id);
   $query_2->execute();
 

@@ -83,7 +83,7 @@ include ("resources/header.php");
      <form action="register.php" method="post">
      <div>
              <label for="">Username</label>
-             <input type="text" name="username" class="form-control" placeholder="Enter username"/>
+             <input type="text" name="username" pattern="[a-zA-Z0-9!@#$%^*_|]{1,25}" placeholder="Enter username"/>
          </div>
          <div>
              <label for="">Email</label>

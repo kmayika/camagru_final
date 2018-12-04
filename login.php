@@ -30,6 +30,7 @@ if (isset($_POST['Login']))
         {
             $_SESSION['username'] = $username;
             $_SESSION['id'] = $user_id;
+            $_SESSION['notification'] = 1;
             header ("location:template.php");
         }
         else
